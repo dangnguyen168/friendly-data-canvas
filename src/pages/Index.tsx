@@ -70,13 +70,13 @@ const Index = () => {
                 <Input 
                   type="text" 
                   placeholder="Nhập mã hoặc quét thẻ" 
-                  className="w-80 h-12 text-lg"
+                  className="w-96 h-16 text-xl"
                 />
-                <Button size="lg" variant="outline" className="h-12 px-4">
-                  <Search className="h-6 w-6" />
+                <Button size="lg" variant="outline" className="h-16 px-6">
+                  <Search className="h-8 w-8" />
                 </Button>
-                <Button size="lg" variant="outline" className="h-12 px-4">
-                  <QrCode className="h-6 w-6" />
+                <Button size="lg" variant="outline" className="h-16 px-6">
+                  <QrCode className="h-8 w-8" />
                 </Button>
               </div>
             </Card>
@@ -94,14 +94,14 @@ const Index = () => {
             {/* Action Buttons moved here */}
             <div className="flex flex-col gap-4">
               <Button 
-                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 text-xl font-semibold rounded-lg"
+                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-6 text-xl font-semibold rounded-lg h-16"
               >
                 ĐỒNG Ý
               </Button>
               
               <Button 
                 variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-xl font-semibold rounded-lg"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-xl font-semibold rounded-lg h-16"
               >
                 Hủy Bỏ
               </Button>

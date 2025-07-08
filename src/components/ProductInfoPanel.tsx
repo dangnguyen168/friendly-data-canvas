@@ -19,7 +19,7 @@ export const ProductInfoPanel = ({
   return (
     <Card className="w-full">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Chi tiết sản phẩm</CardTitle>
+        <CardTitle className="text-3xl font-bold">Chi tiết sản phẩm</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6 text-center">
         <div className="flex justify-center">
@@ -40,23 +40,23 @@ export const ProductInfoPanel = ({
         
         <div className="space-y-4">
           <div>
-            <p className="text-lg text-gray-600 font-medium">Mã sản phẩm</p>
-            <p className="text-xl font-bold">{productCode}</p>
+            <p className="text-xl text-gray-600 font-normal">Mã sản phẩm</p>
+            <p className="text-2xl font-bold">{productCode}</p>
           </div>
           
           <div>
-            <p className="text-lg text-gray-600 font-medium">Tên sản phẩm</p>
-            <p className="text-xl font-bold">{productName}</p>
+            <p className="text-xl text-gray-600 font-medium">Tên sản phẩm</p>
+            <p className="text-2xl font-bold">{productName}</p>
           </div>
           
           <div>
-            <p className="text-lg text-gray-600 font-medium">Kích thước (dm2)</p>
-            <p className="text-2xl font-bold">{size}</p>
+            <p className="text-xl text-gray-600 font-medium">Kích thước (dm2)</p>
+            <p className="text-3xl font-bold">{size}</p>
           </div>
           
           <div>
-            <p className="text-lg text-gray-600 font-medium">Chế độ chạy</p>
-            <p className="text-xl font-bold">{mode}</p>
+            <p className="text-xl text-gray-600 font-medium">Chế độ chạy</p>
+            <p className="text-2xl font-bold">{mode}</p>
           </div>
         </div>
       </CardContent>
