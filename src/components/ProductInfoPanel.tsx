@@ -18,12 +18,12 @@ export const ProductInfoPanel = ({
 }: ProductInfoPanelProps) => {
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">Chi tiết sản phẩm</CardTitle>
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl font-bold">Chi tiết sản phẩm</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6 text-center">
         <div className="flex justify-center">
-          <div className="w-20 h-20 bg-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+          <div className="w-32 h-32 bg-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
             <img 
               src={productImage} 
               alt="Product" 
@@ -32,31 +32,31 @@ export const ProductInfoPanel = ({
                 // Fallback to a placeholder if image fails to load
                 (e.target as HTMLImageElement).style.display = 'none';
                 (e.target as HTMLImageElement).parentElement!.innerHTML = 
-                  '<div class="w-full h-full bg-blue-500 flex items-center justify-center text-white text-xs">IMG</div>';
+                  '<div class="w-full h-full bg-blue-500 flex items-center justify-center text-white text-lg font-bold">IMG</div>';
               }}
             />
           </div>
         </div>
         
-        <div className="space-y-3">
+        <div className="space-y-4">
           <div>
-            <p className="text-sm text-gray-600">Mã sản phẩm</p>
-            <p className="font-semibold">{productCode}</p>
+            <p className="text-lg text-gray-600 font-medium">Mã sản phẩm</p>
+            <p className="text-xl font-bold">{productCode}</p>
           </div>
           
           <div>
-            <p className="text-sm text-gray-600">Tên sản phẩm</p>
-            <p className="font-semibold">{productName}</p>
+            <p className="text-lg text-gray-600 font-medium">Tên sản phẩm</p>
+            <p className="text-xl font-bold">{productName}</p>
           </div>
           
           <div>
-            <p className="text-sm text-gray-600">Kích thước (dm2)</p>
-            <p className="font-semibold text-lg">{size}</p>
+            <p className="text-lg text-gray-600 font-medium">Kích thước (dm2)</p>
+            <p className="text-2xl font-bold">{size}</p>
           </div>
           
           <div>
-            <p className="text-sm text-gray-600">Chế độ chạy</p>
-            <p className="font-semibold">{mode}</p>
+            <p className="text-lg text-gray-600 font-medium">Chế độ chạy</p>
+            <p className="text-xl font-bold">{mode}</p>
           </div>
         </div>
       </CardContent>

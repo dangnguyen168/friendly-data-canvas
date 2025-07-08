@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Search, QrCode } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
 import { ProductInfoPanel } from "@/components/ProductInfoPanel";
 import { ProcessCard } from "@/components/ProcessCard";
@@ -63,55 +65,57 @@ const Index = () => {
           <h1 className="text-2xl font-bold">LINE {selectedLine}</h1>
           
           <div className="flex items-center gap-4">
-            <Card className="p-3">
-              <input 
-                type="text" 
-                placeholder="Nhập mã hoặc quét thẻ" 
-                className="bg-transparent border-none outline-none text-gray-600 placeholder-gray-400 w-64"
-              />
+            <Card className="p-4">
+              <div className="flex items-center gap-3">
+                <Input 
+                  type="text" 
+                  placeholder="Nhập mã hoặc quét thẻ" 
+                  className="w-80 h-12 text-lg"
+                />
+                <Button size="lg" variant="outline" className="h-12 px-4">
+                  <Search className="h-6 w-6" />
+                </Button>
+                <Button size="lg" variant="outline" className="h-12 px-4">
+                  <QrCode className="h-6 w-6" />
+                </Button>
+              </div>
             </Card>
-            <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-gray-600">👤</span>
-            </div>
-            <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
-              <span className="text-white">🔍</span>
+            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <span className="text-gray-600 text-lg">👤</span>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-12 gap-6">
-          {/* Left Column - Product Info */}
-          <div className="col-span-3">
+          {/* Left Column - Product Info and Action Buttons */}
+          <div className="col-span-3 space-y-6">
             <ProductInfoPanel {...productData} />
-          </div>
-
-          {/* Right Column - Process Info */}
-          <div className="col-span-9">
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold mb-4">Thông số xi mạ</h2>
-              <StatusBar jigCarrier={49.6} pcsJig={30} />
-            </div>
-
-            <div className="space-y-4">
-              {processData.map((process, index) => (
-                <ProcessCard key={index} {...process} />
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-4 mt-8">
+            
+            {/* Action Buttons moved here */}
+            <div className="flex flex-col gap-4">
               <Button 
-                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 text-lg font-semibold rounded-lg flex-1"
+                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 text-xl font-semibold rounded-lg"
               >
                 ĐỒNG Ý
               </Button>
               
               <Button 
                 variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 text-lg font-semibold rounded-lg flex-1"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-xl font-semibold rounded-lg"
               >
                 Hủy Bỏ
               </Button>
+            </div>
+          </div>
+
+          {/* Right Column - Process Info */}
+          <div className="col-span-9">
+            <StatusBar jigCarrier={49.6} pcsJig={30} />
+
+            <div className="space-y-4">
+              {processData.map((process, index) => (
+                <ProcessCard key={index} {...process} />
+              ))}
             </div>
           </div>
         </div>
