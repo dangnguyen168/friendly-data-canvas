@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Search, QrCode } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
 import { ProductInfoPanel } from "@/components/ProductInfoPanel";
 import { ProcessCard } from "@/components/ProcessCard";
@@ -70,13 +69,21 @@ const Index = () => {
                 <Input 
                   type="text" 
                   placeholder="Nhập mã hoặc quét thẻ" 
-                  className="w-96 h-16 text-xl"
+                  className="w-96 h-20 text-2xl px-6"
                 />
-                <Button size="lg" variant="outline" className="h-16 px-6">
-                  <Search className="h-8 w-8" />
+                <Button size="lg" variant="outline" className="h-20 px-8">
+                  <img 
+                    src="/lovable-uploads/2ae52d2c-716a-4728-b9cb-cbc0ed0e963d.png" 
+                    alt="Search" 
+                    className="h-10 w-10"
+                  />
                 </Button>
-                <Button size="lg" variant="outline" className="h-16 px-6">
-                  <QrCode className="h-8 w-8" />
+                <Button size="lg" variant="outline" className="h-20 px-8">
+                  <img 
+                    src="/lovable-uploads/10026d2e-b13c-49fc-a7ad-b3dba3a9f62c.png" 
+                    alt="QR Scan" 
+                    className="h-10 w-10"
+                  />
                 </Button>
               </div>
             </Card>
@@ -94,14 +101,14 @@ const Index = () => {
             {/* Action Buttons moved here */}
             <div className="flex flex-col gap-4">
               <Button 
-                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-6 text-xl font-semibold rounded-lg h-16"
+                className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-8 text-2xl font-semibold rounded-lg h-20"
               >
                 ĐỒNG Ý
               </Button>
               
               <Button 
                 variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-xl font-semibold rounded-lg h-16"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-8 text-2xl font-semibold rounded-lg h-20"
               >
                 Hủy Bỏ
               </Button>
