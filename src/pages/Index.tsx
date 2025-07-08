@@ -54,6 +54,36 @@ const Index = () => {
     }
   ];
 
+  const handleScanClick = async () => {
+    try {
+      // Check if the browser supports getUserMedia
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        const stream = await navigator.mediaDevices.getUserMedia({ 
+          video: { facingMode: 'environment' } // Use back camera for scanning
+        });
+        
+        // Create a video element to display the camera feed
+        const video = document.createElement('video');
+        video.srcObject = stream;
+        video.play();
+        
+        // You can implement QR code scanning logic here
+        console.log('Camera accessed successfully');
+        
+        // Stop the stream after a few seconds (for demo purposes)
+        setTimeout(() => {
+          stream.getTracks().forEach(track => track.stop());
+        }, 5000);
+        
+      } else {
+        alert('Camera access is not supported on this device/browser');
+      }
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+      alert('Unable to access camera. Please check permissions.');
+    }
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar selectedLine={selectedLine} onLineSelect={setSelectedLine} />
@@ -64,29 +94,39 @@ const Index = () => {
           <h1 className="text-2xl font-bold">LINE {selectedLine}</h1>
           
           <div className="flex items-center gap-4">
-            <Card className="p-4">
-              <div className="flex items-center gap-3">
-                <Input 
-                  type="text" 
-                  placeholder="Nhập mã hoặc quét thẻ" 
-                  className="w-96 h-20 text-2xl px-6"
-                />
-                <Button size="lg" variant="outline" className="h-20 px-8">
+            {/* Updated search bar design */}
+            <div className="relative flex items-center bg-white rounded-full shadow-lg border border-gray-200 px-6 py-3">
+              <Input 
+                type="text" 
+                placeholder="Nhập mã hoặc quét thẻ" 
+                className="flex-1 border-0 bg-transparent text-xl px-4 py-2 focus:ring-0 focus:outline-none placeholder:text-gray-400"
+              />
+              <div className="flex items-center gap-2 ml-4">
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200"
+                >
                   <img 
                     src="/lovable-uploads/2ae52d2c-716a-4728-b9cb-cbc0ed0e963d.png" 
                     alt="Search" 
-                    className="h-10 w-10"
+                    className="h-6 w-6"
                   />
                 </Button>
-                <Button size="lg" variant="outline" className="h-20 px-8">
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  className="p-3 rounded-full bg-slate-800 hover:bg-slate-700"
+                  onClick={handleScanClick}
+                >
                   <img 
                     src="/lovable-uploads/10026d2e-b13c-49fc-a7ad-b3dba3a9f62c.png" 
                     alt="QR Scan" 
-                    className="h-10 w-10"
+                    className="h-6 w-6 brightness-0 invert"
                   />
                 </Button>
               </div>
-            </Card>
+            </div>
             <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
               <span className="text-gray-600 text-lg">👤</span>
             </div>
